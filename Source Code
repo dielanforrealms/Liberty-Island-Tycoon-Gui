@@ -12,9 +12,26 @@ MainSection:NewButton("Give All Gamepasses", "Some Dont Work", function()
     game:GetService("ReplicatedStorage").RemoteEvents.X2Speed:FireServer()
 end)
 
-MainSection:NewButton("Give All Hidden Badges", "ButtonInfo", function()
+MainSection:NewButton("Give All Hidden Badges", "", function()
  local givebadges = {"HiddenBadge1","HiddenBadge2"}
    for i,v in pairs(givebadges) do
     game:GetService("ReplicatedStorage").RemoteEvents.giveBadge2:FireServer(v)
+    game:GetService("ReplicatedStorage").RemoteEvents.RollEvent:FireServer()
  end
+end)
+
+MainSection:NewButton("Redeem All Codes", "", function()
+  local codes = {"500","SUMMER","RELEASE"}
+  for i,v in pairs(codes) do
+  game:GetService("Players").LocalPlayer.PlayerGui.Codes.Frame.Frame.Codes.Redeem:InvokeServer(v)
+  end
+end)
+
+
+-- TOOGLES UI
+local ToggleUI = Window:NewTab("ToggleUI")
+local ToggleUI = ToggleUI:NewSection("ToggleUI")
+
+ToggleUI:NewKeybind("Toggle Key", "Close&Open UI Using Keybind", Enum.KeyCode.LeftControl, function()
+	Library:ToggleUI()
 end)
