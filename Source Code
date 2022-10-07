@@ -34,6 +34,18 @@ MainSection:NewButton("Inf Coin Multiples", "Basically Semi Inf Coins", function
   end
 end)
 
+MainSection:NewToggle("Auto Rebirth", "", function(state)
+  if state then
+    _G.auto = true 
+    while _G.auto == true do
+      task.wait(0.2)
+     game:GetService("ReplicatedStorage"):FindFirstChild("RebirthEvent (Don't Move)"):FireServer()
+    end
+  else
+    _G.auto = false 
+  end
+end)
+
 -- TOOGLES UI
 local ToggleUI = Window:NewTab("ToggleUI")
 local ToggleUI = ToggleUI:NewSection("ToggleUI")
