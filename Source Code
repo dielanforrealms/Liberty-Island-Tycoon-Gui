@@ -27,7 +27,7 @@ MainSection:NewButton("Redeem All Codes", "", function()
   end
 end)
 
-MainSection:NewButton("Infinite Coins Multiples", "Basically Semi Inf Coins", function()
+MainSection:NewButton("Inf Coin Multiples", "Basically Semi Inf Coins", function()
   while true do 
     task.wait()
    game:GetService("ReplicatedStorage").RemoteEvents.X2Coins:FireServer()
